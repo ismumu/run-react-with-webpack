@@ -1,9 +1,11 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //通过 npm 安装的插件
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = {
+const config = {
     entry: './src/app.js',
     output: {
-        filename: 'main.js',
+        filename: 'bundle-[hash:8].js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -47,5 +49,15 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins:[
+        new CleanWebpackPlugin(['./dist']),
+        new HtmlWebpackPlugin({
+            title:'React简易开发环境',
+            template: './src/index.html'
+        })
+    ]
 };
+
+
+module.exports = config;
