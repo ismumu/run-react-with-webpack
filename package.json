@@ -1,0 +1,38 @@
+{
+    "name": "run-react-with-webpack",
+    "version": "1.0.0",
+    "description": "使用webpack搭建的react全家桶脚手架",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack --mode development --config webpack.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ismumu/run-react-with-webpack.git"
+    },
+    "author": "ismumu",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ismumu/run-react-with-webpack/issues"
+    },
+    "homepage": "https://github.com/ismumu/run-react-with-webpack#readme",
+    "dependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.4",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "css-loader": "^0.28.11",
+        "csv-loader": "^2.1.1",
+        "file-loader": "^1.1.11",
+        "less": "^3.0.4",
+        "less-loader": "^4.1.0",
+        "react": "^16.4.1",
+        "react-dom": "^16.4.1",
+        "style-loader": "^0.21.0",
+        "webpack": "^4.12.1",
+        "webpack-cli": "^3.0.8",
+        "webpack-dev-server": "^3.1.4",
+        "xml-loader": "^1.2.1"
+    }
+}
