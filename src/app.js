@@ -2,17 +2,13 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-
-import styles from './app.less';
-
+import { DatePicker } from 'antd';
 
 
 import About from './about/index';
 
-import { DatePicker } from 'antd';
-
 import 'antd/dist/antd.css';
+import styles from './app.less';
 
 
 
