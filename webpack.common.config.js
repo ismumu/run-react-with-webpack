@@ -13,16 +13,29 @@ const config = {
             {
                 test: /\.(js|jsx)$/,
                 use: [
-                    'babel-loader'
+                    {
+                        loader: 'babel-loader',
+                    }
                 ]
             },
             {
                 test: /\.(css|less)$/,
                 use: [
-                    'style-loader',
-                    'css-loader?modules',
-                    'less-loader'
-                ]
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[local]-[hash:base64:5]',
+                        }
+              
+                    },
+                    {
+                        loader: 'less-loader',
+                    }
+                ],
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -53,7 +66,6 @@ const config = {
     plugins:[
         new CleanWebpackPlugin(['./dist']),
         new HtmlWebpackPlugin({
-            title:'React简易开发环境',
             template: './src/index.html'
         })
     ]

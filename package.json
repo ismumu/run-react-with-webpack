@@ -4,7 +4,7 @@
     "description": "使用webpack搭建的react全家桶脚手架",
     "main": "index.js",
     "scripts": {
-        "start": "webpack --config webpack.development.config.js",
+        "start": "webpack-dev-server --config webpack.development.config.js",
         "build": "webpack --config webpack.production.config.js"
     },
     "repository": {
@@ -18,9 +18,11 @@
     },
     "homepage": "https://github.com/ismumu/run-react-with-webpack#readme",
     "dependencies": {
+        "antd": "^3.6.4",
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.3",
         "babel-loader": "^7.1.4",
+        "babel-plugin-import": "^1.8.0",
         "babel-preset-env": "^1.7.0",
         "babel-preset-react": "^6.24.1",
         "clean-webpack-plugin": "^0.1.19",

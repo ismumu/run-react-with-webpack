@@ -10,7 +10,11 @@ const config = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
-        hot: true
+        // index: path.resolve(__dirname, 'dist'),
+        port: 9000,
+        open: true, // 自动打开浏览器
+        hot: true,
+        compress: true
     },
     mode: 'development',
     plugins: [
