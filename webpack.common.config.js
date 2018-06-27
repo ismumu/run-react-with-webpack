@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //通过 npm 安装的
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {
-    entry: './src/app.js',
+    entry: './src/index.js',
     output: {
         filename: 'bundle-[hash:8].js',
         path: path.resolve(__dirname, 'dist')

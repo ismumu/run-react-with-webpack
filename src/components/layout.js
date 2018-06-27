@@ -1,20 +1,23 @@
 
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
 
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+
+import { Link } from 'react-router-dom';
 
 
 
 import 'antd/dist/antd.css';
-import styles from './app.less';
+import styles from './layout.less';
 
 
 
-class App extends React.Component {
+class AppLayout extends React.Component {
 
     constructor() {
         super();
@@ -62,6 +65,8 @@ class App extends React.Component {
                         />
                     </Header>
                     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+                        <Link to='/about'>Tomato</Link>
+                        <Link to='/case'>case</Link>
                         Content
                     </Content>
                 </Layout>
@@ -70,7 +75,6 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+
+export default AppLayout;
+// export default withRouter(connect()(AppLayout));
