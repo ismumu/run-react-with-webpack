@@ -15,9 +15,7 @@ const history = createBrowserHistory();
 import AppLayout from './components/layout';
 
 
-import Index from './pages/index/index';
-import About from './pages/about/index';
-import Case from './pages/case/index';
+import routes from './components/routes';
 
 
 
@@ -25,9 +23,15 @@ const App = () => (
     <Router history={history}>
         <AppLayout>
             <Switch>
-                <Route exact path='/' component={Index}/>
-                <Route exact path='/about' component={About}/>
-                <Route exact path='/case' component={Case}/>
+                {
+                    routes.map(({ path, component }, index) => (
+                        <Route key={index}
+                            exact
+                            path={path}
+                            component={component}
+                        />
+                    ))
+                }
             </Switch>
         </AppLayout>
     </Router>

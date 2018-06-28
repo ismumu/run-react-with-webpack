@@ -6,7 +6,7 @@ import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
 
 import { withRouter } from 'react-router';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
@@ -14,6 +14,9 @@ import { Link } from 'react-router-dom';
 
 import 'antd/dist/antd.css';
 import styles from './layout.less';
+
+
+import routes from './routes';
 
 
 
@@ -33,6 +36,16 @@ class AppLayout extends React.Component {
     }
 
     render() {
+
+        // 根据url默认选中展开项
+        let { pathname } = this.props.location;
+		let menuDefaultSelectedKeys = ['/']; // 默认选中首页
+
+		routes.map(({ path }) => {
+            path == pathname ? menuDefaultSelectedKeys = [path] : '';
+		})
+
+
         return (
             <Layout className={styles.layout}>
                 <Sider
@@ -41,19 +54,16 @@ class AppLayout extends React.Component {
                     collapsed={this.state.collapsed}
                 >
                     <div className={styles.logo}>Run React With Webpack</div>
-                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                        <Menu.Item key="1">
-                            <Icon type="user" />
-                            <span>nav 1</span>
-                        </Menu.Item>
-                        <Menu.Item key="2">
-                            <Icon type="video-camera" />
-                            <span>nav 2</span>
-                        </Menu.Item>
-                        <Menu.Item key="3">
-                            <Icon type="upload" />
-                            <span>nav 3</span>
-                        </Menu.Item>
+                    <Menu theme="dark" mode="inline" defaultSelectedKeys={menuDefaultSelectedKeys}>
+                        {
+                            routes.map(({ path, name }) => {
+                                return (
+                                    <Menu.Item key={path}>
+                                        <Link to={path}>{name}</Link>
+                                    </Menu.Item>
+                                )
+                            })
+                        }
                     </Menu>
                 </Sider>
                 <Layout>
@@ -65,9 +75,7 @@ class AppLayout extends React.Component {
                         />
                     </Header>
                     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
-                        <Link to='/about'>Tomato</Link>
-                        <Link to='/case'>case</Link>
-                        Content
+                        {this.props.children}
                     </Content>
                 </Layout>
             </Layout>
@@ -75,6 +83,4 @@ class AppLayout extends React.Component {
     }
 }
 
-
-export default AppLayout;
-// export default withRouter(connect()(AppLayout));
+export default withRouter(AppLayout);
