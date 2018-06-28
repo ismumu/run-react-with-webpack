@@ -1,24 +1,34 @@
+import React from 'react';
+import Loadable from 'react-loadable';
 
 
-import Index from '../pages/index/index';
-import About from '../pages/about/index';
-import Case from '../pages/case/index';
-
+function Loading() {
+    return <div>Loading...</div>;
+}
 
 export default [
     {
         path: '/',
         name: '首页',
-        component: Index,
+        component: Loadable({
+            loader: () => import('../pages/index/index'),
+            loading: Loading,
+        }),
     },
     {
         path: '/about',
         name: '关于我们',
-        component: About,
+        component: Loadable({
+            loader: () => import('../pages/about/index'),
+            loading: Loading,
+        }),
     },
     {
         path: '/case',
         name: '经典案例',
-        component: Case,
+        component: Loadable({
+            loader: () => import('../pages/case/index'),
+            loading: Loading,
+        }),
     },
 ];

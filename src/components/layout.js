@@ -39,7 +39,7 @@ class AppLayout extends React.Component {
 
         // 根据url默认选中展开项
         let { pathname } = this.props.location;
-		let menuDefaultSelectedKeys = ['/']; // 默认选中首页
+		let menuDefaultSelectedKeys = [];
 
 		routes.map(({ path }) => {
             path == pathname ? menuDefaultSelectedKeys = [path] : '';
@@ -56,13 +56,11 @@ class AppLayout extends React.Component {
                     <div className={styles.logo}>Run React With Webpack</div>
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={menuDefaultSelectedKeys}>
                         {
-                            routes.map(({ path, name }) => {
-                                return (
-                                    <Menu.Item key={path}>
-                                        <Link to={path}>{name}</Link>
-                                    </Menu.Item>
-                                )
-                            })
+                            routes.map(({ path, name }) => (
+                                <Menu.Item key={path}>
+                                    <Link to={path}>{name}</Link>
+                                </Menu.Item>
+                            ))
                         }
                     </Menu>
                 </Sider>

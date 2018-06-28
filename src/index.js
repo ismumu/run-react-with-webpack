@@ -13,6 +13,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 const history = createBrowserHistory();
 
 import AppLayout from './components/layout';
+import NotFoundPage from './pages/NotFoundPage/index'
 
 
 import routes from './components/routes';
@@ -32,6 +33,7 @@ const App = () => (
                         />
                     ))
                 }
+                <Route exact path='*' component={NotFoundPage} />
             </Switch>
         </AppLayout>
     </Router>
