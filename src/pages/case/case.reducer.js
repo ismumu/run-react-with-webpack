@@ -3,7 +3,7 @@ const caseReducer = (state = {
 }, action) => {
 
     switch (action.type) {
-        case 'ADD':
+        case 'CHANGE_TITLE':
             return {
                 ...state,
                 titleText: action.payload.titleText,

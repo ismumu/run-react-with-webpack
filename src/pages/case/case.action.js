@@ -1,5 +1,5 @@
 
 
-export const counter = (payload) => {
-    return ({ type: 'ADD', payload })
+export const changeTitle = (payload) => {
+    return ({ type: 'CHANGE_TITLE', payload })
 }

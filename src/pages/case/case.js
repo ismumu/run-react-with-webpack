@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import { counter } from './case.action'
+import { changeTitle } from './case.action';
 
 import { Button } from 'antd';
 
@@ -14,8 +14,7 @@ class Case extends React.Component {
     handleClick = () => {
 
         let { dispatch, caseReducer } = this.props;
-
-        dispatch(counter({
+        dispatch(changeTitle({
             titleText: caseReducer.titleText == '文章标题' ? '我是新的标题哦': '文章标题',
         }))
     }
