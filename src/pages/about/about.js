@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import styles from './index.less';
+import styles from './about.less';
 
 export default class About extends React.Component {
     render () {

@@ -6,7 +6,7 @@ import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
 
 import { withRouter } from 'react-router';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ import 'antd/dist/antd.css';
 import styles from './layout.less';
 
 
-import routes from './routes';
+import menuArray from '../common/menu';
 
 
 
@@ -41,7 +41,7 @@ class AppLayout extends React.Component {
         let { pathname } = this.props.location;
 		let menuDefaultSelectedKeys = [];
 
-		routes.map(({ path }) => {
+		menuArray.map(({ path }) => {
             path == pathname ? menuDefaultSelectedKeys = [path] : '';
 		})
 
@@ -56,7 +56,7 @@ class AppLayout extends React.Component {
                     <div className={styles.logo}>Run React With Webpack</div>
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={menuDefaultSelectedKeys}>
                         {
-                            routes.map(({ path, name }) => (
+                            menuArray.map(({ path, name }) => (
                                 <Menu.Item key={path}>
                                     <Link to={path}>{name}</Link>
                                 </Menu.Item>
@@ -81,4 +81,5 @@ class AppLayout extends React.Component {
     }
 }
 
+// export default withRouter(connect())(AppLayout);
 export default withRouter(AppLayout);

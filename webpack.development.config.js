@@ -14,7 +14,8 @@ const config = merge(common, {
         port: 9000,
         open: true, // 自动打开浏览器
         hot: true,
-        compress: true
+        compress: true,
+        historyApiFallback: true,
     },
     mode: 'development',
     plugins: [

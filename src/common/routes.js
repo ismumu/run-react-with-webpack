@@ -19,7 +19,7 @@ export default [
         path: '/about',
         name: '关于我们',
         component: Loadable({
-            loader: () => import('../pages/about/index'),
+            loader: () => import('../pages/about/about'),
             loading: Loading,
         }),
     },
@@ -27,7 +27,7 @@ export default [
         path: '/case',
         name: '经典案例',
         component: Loadable({
-            loader: () => import('../pages/case/index'),
+            loader: () => import('../pages/case/case'),
             loading: Loading,
         }),
     },
