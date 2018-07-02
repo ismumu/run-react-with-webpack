@@ -9,7 +9,7 @@ export default [
         name: '关于我们',
     },
     {
-        path: '/case',
-        name: '经典案例',
+        path: '/changetitle',
+        name: '更改标题',
     },
 ];
