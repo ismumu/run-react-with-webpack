@@ -5,8 +5,8 @@ export default [
         name: '首页',
     },
     {
-        path: '/about',
-        name: '关于我们',
+        path: '/interfacedata',
+        name: '获取接口数据',
     },
     {
         path: '/changetitle',

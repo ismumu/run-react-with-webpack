@@ -1,12 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 
-import rootReducer from './reducers/index'
 
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
-let store = createStore(rootReducer);
+import createSagaMiddleware from 'redux-saga';
+const sagaMiddleware = createSagaMiddleware();
+
+import rootReducer from './reducers/index';
+import rootSaga from './saga/index';
+
+let store = createStore(
+    rootReducer,
+    applyMiddleware(sagaMiddleware)
+
+);
+
+sagaMiddleware.run(rootSaga);
+
 
 import {
     Router,

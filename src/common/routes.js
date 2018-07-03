@@ -15,9 +15,9 @@ export default [
         }),
     },
     {
-        path: '/about',
+        path: '/interfacedata',
         component: Loadable({
-            loader: () => import('../pages/about/about'),
+            loader: () => import('../pages/getInterfaceData/interfaceData'),
             loading: Loading,
         }),
     },
