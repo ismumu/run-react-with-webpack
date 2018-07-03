@@ -35,14 +35,7 @@ class GetInterfaceData extends React.Component {
 
     handleClick = () => {
         let { dispatch } = this.props;
-        // dispatch(getInterfaceData())
-
-        dispatch({
-            type: 'RENDER_DATA',
-            payload: {
-                v: '1111',
-            }
-        })
+        dispatch(getInterfaceData())
     }
 
     render () {

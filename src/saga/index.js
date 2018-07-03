@@ -5,20 +5,33 @@
 
 
 import { put, call, take, fork } from 'redux-saga/effects';
-import { takeEvery, takeLatest } from 'redux-saga'
+import { takeEvery, takeLatest } from 'redux-saga';
+import { RENDER_INTERFACE_DATA } from '../actionTypes/index';
 
 
 
-export const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+// export const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 function* incrementAsync() {
-    // 延迟 1s 在执行 + 1操作
-    yield call(delay, 1000);
-    console.log(11111);
+
+    // yield call(delay, 1000);
+
     yield put({
-        type: 'RENDER_DATA',
+        type: RENDER_INTERFACE_DATA,
         payload: {
-            aa: 1,
+            data: [
+                {
+                    key: '1',
+                    name: '胡彦斌',
+                    age: 32,
+                    address: '西湖区湖底公园1号'
+                  }, {
+                    key: '2',
+                    name: '胡彦祖',
+                    age: 42,
+                    address: '西湖区湖底公园1号'
+                  }
+            ],
         }
     });
 }
@@ -26,7 +39,7 @@ function* incrementAsync() {
 
 export default function* rootSaga() {
 
-    yield* takeEvery("GET_INTERFACE_DATA", incrementAsync)
+    yield* takeEvery("GET_INTERFACE_DATA", incrementAsync);
     // yield all([
     //     incrementAsync(),
     // ])

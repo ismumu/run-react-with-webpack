@@ -1,5 +1,5 @@
 
-import { CHANGE_TITLE } from '../../actions/actionTypes';
+import { CHANGE_TITLE } from '../../actionTypes/index';
 
 const caseReducer = (state = {
     titleText: '文章标题',

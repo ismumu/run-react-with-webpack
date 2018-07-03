@@ -1,13 +1,13 @@
 
 const interfaceDataReducer = (state = {
-    aa: 1,
+    data: [],
 }, action) => {
 
-    console.log(action)
     switch (action.type) {
-        case 'RENDER_DATA':
+        case 'RENDER_INTERFACE_DATA':
             return {
                 ...state,
+                data: action.payload.data,
             }
         default:
             return state
